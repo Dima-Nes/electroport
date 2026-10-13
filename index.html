@@ -15,7 +15,7 @@
 
   <!-- Стили -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="icon" type="image/png" href="assets/img/logo.png?v=3">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a href="#hero" class="site-logo" aria-label="ООО Электропорт">
-        <img src="assets/img/logo.png" alt="ООО Электропорт — Электромонтаж и сервис" class="site-logo__img">
+        <img src="assets/img/logo.png?v=3" alt="ООО «Электропорт»" class="site-logo__img" width="160" height="48">
       </a>
 
       <nav class="site-nav" id="siteNav" aria-label="Основная навигация">
@@ -64,6 +64,29 @@
           <li><a href="#process" class="site-nav__link">Этапы</a></li>
           <li><a href="#faq" class="site-nav__link">Вопросы</a></li>
         </ul>
+
+        <div class="site-nav__mobile-box">
+          <a href="#contacts" class="btn btn-primary btn-block site-nav__mobile-cta" data-open-modal data-modal-title="Заказать расчет сметы по проекту">
+            ⚡️ Рассчитать смету по проекту
+          </a>
+          <div class="mobile-menu-contacts">
+            <a href="tel:+375292062541" class="mobile-menu-phone">
+              <span>📞</span> +375&nbsp;(29)&nbsp;206&#8209;25&#8209;41
+            </a>
+            <div class="mobile-menu-label">Инженер на связи • Консультация 24/7</div>
+            <div class="mobile-menu-btns">
+              <a href="https://t.me/+375292062541" target="_blank" rel="noopener" class="mobile-menu-tg">
+                Telegram
+              </a>
+              <a href="mailto:info@electroport.by" class="mobile-menu-mail">
+                info@electroport.by
+              </a>
+            </div>
+            <div class="mobile-menu-meta">
+              <span>Работаем по всей Беларуси</span> • <span>УНП 693422711</span>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <div class="site-header__actions">
@@ -71,7 +94,11 @@
           <a href="tel:+375292062541" class="header-phone-quick__num">+375&nbsp;(29)&nbsp;206&#8209;25&#8209;41</a>
           <span class="header-phone-quick__label">Инженер на связи</span>
         </div>
-        <a href="#contacts" class="btn btn-primary btn-sm" data-open-modal data-modal-title="Заказать расчет сметы по проекту">
+        <a href="tel:+375292062541" class="header-call-mobile" aria-label="Позвонить инженеру">
+          <span class="header-call-mobile__icon">📞</span>
+          <span class="header-call-mobile__text">+375&nbsp;(29)&nbsp;206&#8209;25&#8209;41</span>
+        </a>
+        <a href="#contacts" class="btn btn-primary btn-sm header-cta-desktop" data-open-modal data-modal-title="Заказать расчет сметы по проекту">
           Рассчитать смету
         </a>
         <button class="burger-btn" id="burgerBtn" aria-label="Открыть мобильное меню">☰</button>
@@ -1000,7 +1027,7 @@
     <div class="container">
       <div class="site-footer__inner">
         <div>
-          <img src="assets/img/logo.png" alt="ООО Электропорт" style="height:44px; margin-bottom:12px; filter:brightness(0) invert(1);">
+          <img src="assets/img/logo.png?v=3" alt="ООО «Электропорт»" width="160" height="48" style="height:44px; width:auto; margin-bottom:12px; filter:brightness(0) invert(1);">
           <p class="site-footer__brand-p">
             Строительно-монтажная организация по возведению зарядной инфраструктуры для электротранспорта в Республике Беларусь.
           </p>

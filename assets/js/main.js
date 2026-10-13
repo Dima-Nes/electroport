@@ -30,8 +30,9 @@ function initMobileNav() {
       burgerBtn.textContent = isOpen ? '✕' : '☰';
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
+    const closeTargets = siteNav.querySelectorAll('a, button');
+    closeTargets.forEach(el => {
+      el.addEventListener('click', () => {
         siteNav.classList.remove('mobile-active');
         document.documentElement.classList.remove('nav-open');
         burgerBtn.setAttribute('aria-expanded', false);

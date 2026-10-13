@@ -217,12 +217,23 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .site-logo__img {
-  height: 48px;
+  height: 46px;
   width: auto;
+  max-width: 160px;
   object-fit: contain;
+  display: block;
+}
+
+.header-call-mobile {
+  display: none;
+}
+
+.site-nav__mobile-box {
+  display: none;
 }
 
 .site-nav__list {
@@ -1577,37 +1588,6 @@ button, input, select, textarea {
 }
 
 @media (max-width: 860px) {
-  .site-nav {
-    display: none;
-  }
-  .site-nav.mobile-active {
-    display: flex;
-    position: fixed;
-    top: 76px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--color-bg-white);
-    flex-direction: column;
-    padding: 30px 24px;
-    z-index: 99;
-    border-top: 1px solid var(--color-border-light);
-  }
-  .site-nav.mobile-active .site-nav__list {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
-  }
-  .site-nav.mobile-active .site-nav__link {
-    font-size: 1.125rem;
-  }
-  .burger-btn {
-    display: block;
-  }
-  .header-phone-quick {
-    display: none;
-  }
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -1639,47 +1619,7 @@ button, input, select, textarea {
     padding: 0 16px;
   }
   .top-bar {
-    padding: 8px 0;
-  }
-  .top-bar__inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 8px;
-    justify-content: center;
-  }
-  .top-bar__status {
-    font-size: 0.75rem;
-    justify-content: center;
-    text-align: center;
-  }
-  .top-bar__contacts {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px 12px;
-    width: 100%;
-  }
-  .top-bar__phone {
-    flex: 0 0 100%;
-    width: 100%;
-    font-size: 0.9375rem;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    justify-content: center;
-  }
-  .top-bar__link {
-    font-size: 0.75rem;
-  }
-  .top-bar__unp {
-    flex: 0 0 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 0.6875rem;
+    display: none !important;
   }
 }
 
@@ -1709,76 +1649,259 @@ html, body { max-width: 100%; overflow-x: clip; }
   .header-phone-quick { display: none; }
 }
 @media (max-width: 860px) {
-  .site-header__inner { gap: 12px; }
+  .site-header__inner {
+    height: 60px !important;
+    gap: 12px !important;
+    padding: 0 16px !important;
+  }
+  .site-logo {
+    max-width: 145px !important;
+    flex-shrink: 0 !important;
+  }
+  .site-logo__img {
+    height: 36px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+  .header-cta-desktop {
+    display: none !important;
+  }
+  .header-phone-quick {
+    display: none !important;
+  }
+  .site-header__actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
+  }
+  .header-call-mobile {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    background: #e0f2fe;
+    color: var(--color-brand-petrol);
+    padding: 6px 12px;
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid rgba(2, 132, 199, 0.25);
+    transition: all 0.2s ease;
+  }
+  .header-call-mobile:hover, .header-call-mobile:active {
+    background: #bae6fd;
+  }
+  .burger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-light);
+    background: #ffffff;
+    color: var(--color-brand-petrol);
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0 !important;
+    padding: 0;
+    transition: all 0.2s ease;
+  }
+  .burger-btn:hover, .burger-btn:active {
+    background: #f1f5f9;
+    color: var(--color-accent-cyan-dark);
+    border-color: var(--color-accent-cyan);
+  }
 }
+
+@media (max-width: 520px) {
+  .header-call-mobile {
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    font-size: 1rem !important;
+  }
+  .header-call-mobile__text {
+    display: none !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .site-header__inner {
+    height: 56px !important;
+  }
+  .site-logo {
+    max-width: 120px !important;
+  }
+  .site-logo__img {
+    height: 32px !important;
+  }
+  .burger-btn {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 1.25rem !important;
+  }
+  .header-call-mobile {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* Мобильное меню (полноэкранный аккуратный drawer) */
+@media (max-width: 1120px) {
+  html.nav-open {
+    overflow: hidden !important;
+  }
+  html.nav-open .site-header {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: #ffffff !important;
+  }
+  .site-nav {
+    display: none;
+  }
+  .site-nav.mobile-active {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: var(--header-bottom, 60px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    height: calc(100vh - var(--header-bottom, 60px)) !important;
+    height: calc(100dvh - var(--header-bottom, 60px)) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    background: #ffffff !important;
+    padding: 16px 20px 48px !important;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12) !important;
+    z-index: 99 !important;
+  }
+  .site-nav.mobile-active .site-nav__list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+  .site-nav.mobile-active .site-nav__list li {
+    width: 100%;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .site-nav.mobile-active .site-nav__link {
+    display: block !important;
+    padding: 14px 4px !important;
+    font-size: 1.0625rem !important;
+    font-weight: 600 !important;
+    color: var(--color-text-title) !important;
+    text-decoration: none !important;
+    transition: color 0.15s ease;
+  }
+  .site-nav.mobile-active .site-nav__link:hover,
+  .site-nav.mobile-active .site-nav__link:active {
+    color: var(--color-accent-cyan-dark) !important;
+  }
+  .site-nav.mobile-active .site-nav__mobile-box {
+    display: block !important;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .site-nav__mobile-cta {
+    width: 100% !important;
+    display: block !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+    box-shadow: 0 4px 14px rgba(0, 168, 181, 0.35) !important;
+  }
+  .mobile-menu-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid var(--color-border-light);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .mobile-menu-phone {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--color-brand-petrol);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .mobile-menu-label {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+  .mobile-menu-btns {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .mobile-menu-tg {
+    flex: 1;
+    text-align: center;
+    background: #0284c7;
+    color: #ffffff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .mobile-menu-mail {
+    flex: 1;
+    text-align: center;
+    background: #ffffff;
+    color: var(--color-text-body);
+    border: 1px solid var(--color-border-light);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .mobile-menu-meta {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 6px;
+  }
+}
+
 @media (max-width: 640px) {
   .calc-wrapper { padding: 24px 18px; gap: 28px; }
   .contact-box { padding: 24px 18px; }
-}
-@media (max-width: 480px) {
-  .site-header__inner { height: 68px; }
-  .site-nav.mobile-active { top: 68px; }
-  .site-logo__img { height: 40px; }
-  .site-header__actions { gap: 10px; }
-  .site-header__actions .btn-sm { padding: 8px 12px; font-size: 0.8125rem; }
-}
-@media (max-width: 400px) {
-  .hero__title { font-size: 1.875rem; }
-  .site-logo__img { height: 36px; }
-  .site-header__actions { gap: 6px; }
-  .site-header__actions .btn-sm { padding: 8px 10px; font-size: 0.75rem; }
-}
-/* Бургер-меню на планшетах и малых ноутбуках (861–1120px), чтобы меню не наезжало на кнопку */
-@media (min-width: 861px) and (max-width: 1120px) {
-  .site-nav { display: none; }
-  .site-nav.mobile-active { display: flex; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
-    background: var(--color-bg-white); flex-direction: column; padding: 30px 24px; z-index: 99;
-    border-top: 1px solid var(--color-border-light); }
-  .site-nav.mobile-active .site-nav__list { flex-direction: column; align-items: flex-start; gap: 20px; width: 100%; }
-  .site-nav.mobile-active .site-nav__link { font-size: 1.125rem; }
-  .burger-btn { display: block; }
+  .btn { white-space: normal; text-align: center; line-height: 1.3; }
+  .spec-item__val { font-size: 1rem; }
+  .modal-window { padding: 32px 20px 24px; }
 }
 
-/* Мобильное меню: фиксированная непрозрачная панель под шапкой на всю высоту экрана.
-   На время открытия у шапки снимается backdrop-filter, иначе fixed считается от шапки. */
-@media (max-width: 1120px) {
-  html.nav-open { overflow: hidden; }
-  html.nav-open .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background-color: #ffffff; }
-  .site-nav.mobile-active {
-    position: fixed;
-    top: var(--header-bottom, 76px);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: auto;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    background: #ffffff;
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
-  }
-  .site-nav.mobile-active .site-nav__link { display: block; padding: 6px 0; }
-  .burger-btn { min-width: 44px; min-height: 44px; }
-}
-
-/* Карточки объектов: значения характеристик не вылезают за плашку */
+/* Карточки объектов и калькулятор */
 .project-specs-grid > * { min-width: 0; }
 .spec-item__val { overflow-wrap: break-word; }
-/* Калькулятор: суммы не разрываются ("26 300 BYN" в одну строку) */
 .calc-breakdown__item { gap: 12px; }
 .calc-breakdown__item span:last-child { white-space: nowrap; text-align: right; }
-@media (max-width: 640px) {
-  /* Длинные надписи кнопок переносятся, а не выходят за границы */
-  .btn { white-space: normal; text-align: center; line-height: 1.3; }
-  .site-header__actions .btn-sm { white-space: nowrap; }
-  .spec-item__val { font-size: 1rem; }
-}
-
-/* Доп. правки по замерам переполнения */
-@media (min-width: 1121px) and (max-width: 1320px) {
-  .site-nav__list { gap: 16px; }
-}
 .spec-item__lbl { overflow-wrap: break-word; hyphens: auto; }
 .calc-breakdown__item--total { flex-wrap: wrap; }
+
 @media (max-width: 420px) {
   .section-title, .contact-info__title { font-size: 1.625rem; hyphens: auto; overflow-wrap: break-word; }
   .project-specs-grid { gap: 8px; }
@@ -1786,21 +1909,23 @@ html, body { max-width: 100%; overflow-x: clip; }
   .contact-info { min-width: 0; }
 }
 
-/* Шапка на широких экранах: меню не наезжает на логотип и телефон */
+/* Шапка на широких экранах */
 @media (min-width: 1121px) {
-  .site-nav__list { gap: 20px; }
+  .site-header__inner { gap: 24px; }
+  .site-nav__list { gap: 14px; }
   .site-nav__link { font-size: 0.875rem; }
 }
 @media (min-width: 1121px) and (max-width: 1320px) {
+  .header-phone-quick { display: none; }
   .site-nav__list { gap: 16px; }
 }
-/* Модальное окно помещается на коротких экранах, крестик всегда доступен */
+
+/* Модальное окно */
 .modal-overlay { padding: 16px; }
 .modal-window { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; }
 .modal-close-btn { width: 44px; height: 44px; top: 10px; right: 10px; display: flex; align-items: center; justify-content: center; }
-@media (max-width: 640px) { .modal-window { padding: 32px 20px 24px; } }
-/* Узкие смартфоны (до 360px) */
-.site-header__actions .btn-sm { min-height: 40px; }
+
+/* Узкие экраны */
 @media (max-width: 360px) {
   .hero__title { font-size: 1.625rem; }
   .hero-stat-box { padding: 12px; min-width: 0; }
@@ -1809,19 +1934,6 @@ html, body { max-width: 100%; overflow-x: clip; }
   .spec-item__val { font-size: 0.9375rem; }
   .spec-item__lbl { font-size: 0.6875rem; }
   .project-specs-grid { padding: 12px; }
-  .site-logo__img { height: 32px; }
-}
-@media (max-width: 340px) {
-  .site-header__actions .btn-sm { display: none; }
-}
-/* Итоговая настройка шапки по замерам: логотип 157 + меню + телефон 164 + кнопка 166 в контейнере 1192px */
-@media (min-width: 1121px) {
-  .site-header__inner { gap: 24px; }
-  .site-nav__list { gap: 14px; }
-}
-@media (min-width: 1121px) and (max-width: 1320px) {
-  .header-phone-quick { display: none; }   /* телефон остаётся в верхней панели */
-  .site-nav__list { gap: 18px; }
 }
 @media (max-width: 340px) {
   .hero-stat-box { padding: 10px; }
