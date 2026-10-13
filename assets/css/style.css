@@ -1,0 +1,1831 @@
+/* ==========================================================================
+   ООО «Электропорт» — Официальный веб-сайт (Беларусь)
+   Светлая дизайн-система (White / Light Theme)
+   ========================================================================== */
+
+:root {
+  /* Фирменная палитра бренда (из Logo_main) */
+  --color-brand-petrol: #1e5a6b;
+  --color-brand-petrol-dark: #133c48;
+  --color-brand-petrol-light: #287a91;
+  --color-brand-petrol-subtle: #f0f7f9;
+
+  /* Яркий технологичный акцент (Hyper Cyan / Electric Teal) */
+  --color-accent-cyan: #00a8b5;
+  --color-accent-cyan-dark: #008792;
+  --color-accent-cyan-light: #00c4d4;
+  --color-accent-cyan-glow: rgba(0, 168, 181, 0.28);
+  --color-accent-cyan-subtle: #e6f9fa;
+
+  /* Дополнительные акценты */
+  --color-accent-volt: #059669;
+  --color-accent-volt-subtle: #ecfdf5;
+  --color-accent-amber: #d97706;
+  --color-accent-amber-subtle: #fffbeb;
+
+  /* Светлая тема: Фоны и поверхности */
+  --color-bg-body: #f8fafc;
+  --color-bg-white: #ffffff;
+  --color-bg-alt: #f1f5f9;
+  --color-bg-elevated: #ffffff;
+  
+  /* Границы и разделители */
+  --color-border-light: #e2e8f0;
+  --color-border-card: #e2e8f0;
+  --color-border-cyan: #b2ebf2;
+
+  /* Текст (высокий контраст для легкого чтения) */
+  --color-text-title: #0f172a;
+  --color-text-body: #334155;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-text-white: #ffffff;
+
+  /* Типографика */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Радиусы и тени */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.1), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 16px 40px -6px rgba(0, 168, 181, 0.14), 0 6px 16px -2px rgba(15, 23, 42, 0.06);
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* Базовые настройки */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   Верхняя служебная панель (Top Bar) — Светлая
+   ========================================================================== */
+.top-bar {
+  background-color: #f1f5f9;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: 0.8125rem;
+  padding: 9px 0;
+  color: var(--color-text-secondary);
+}
+
+.top-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.top-bar__status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-title);
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent-volt);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(5, 150, 105, 0.6);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.top-bar__contacts {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.top-bar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-body);
+  white-space: nowrap;
+}
+
+.top-bar__link:hover {
+  color: var(--color-accent-cyan-dark);
+}
+
+.top-bar__phone {
+  font-weight: 800;
+  color: var(--color-brand-petrol);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.top-bar__link--tg {
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+.top-bar__link--tg:hover {
+  background: #bae6fd;
+}
+
+/* ==========================================================================
+   Шапка (Header) — Белая с размытием
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-logo__img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-nav__link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+  position: relative;
+  padding: 8px 0;
+}
+
+.site-nav__link:hover,
+.site-nav__link.active {
+  color: var(--color-brand-petrol);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent-cyan);
+  transition: var(--transition-fast);
+}
+
+.site-nav__link:hover::after {
+  width: 100%;
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-phone-quick {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.header-phone-quick__num {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.header-phone-quick__label {
+  font-size: 0.6875rem;
+  color: var(--color-accent-volt);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   Кнопки (Buttons)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition-normal);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-brand-petrol), var(--color-accent-cyan));
+  color: var(--color-text-white);
+  box-shadow: 0 4px 14px rgba(0, 168, 181, 0.28);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-brand-petrol-dark), var(--color-accent-cyan-dark));
+  box-shadow: 0 6px 20px rgba(0, 168, 181, 0.42);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--color-bg-white);
+  color: var(--color-text-title);
+  border-color: var(--color-border-card);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent-cyan);
+  color: var(--color-brand-petrol);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-petrol {
+  background: transparent;
+  color: var(--color-brand-petrol);
+  border-color: var(--color-brand-petrol);
+}
+
+.btn-outline-petrol:hover {
+  background: var(--color-brand-petrol-subtle);
+  transform: translateY(-2px);
+}
+
+.btn-sm {
+  padding: 9px 18px;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 15px 30px;
+  font-size: 1.0625rem;
+}
+
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-title);
+  font-size: 1.75rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* ==========================================================================
+   Главный экран (Hero Section) — Светлый, современный
+   ========================================================================== */
+.hero {
+  position: relative;
+  padding: 60px 0 80px;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7f9 100%);
+  border-bottom: 1px solid var(--color-border-light);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(30, 90, 107, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 90, 107, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-brand-petrol-subtle);
+  border: 1px solid var(--color-border-cyan);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--color-brand-petrol);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero__title {
+  font-size: 2.875rem;
+  font-weight: 900;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+  color: var(--color-text-title);
+}
+
+.hero__title .text-accent {
+  color: var(--color-accent-cyan-dark);
+  position: relative;
+}
+
+.hero__subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 620px;
+}
+
+.hero__cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.hero__features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.hero__feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--color-text-body);
+  font-weight: 600;
+}
+
+.hero__feature-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-accent-volt-subtle);
+  color: var(--color-accent-volt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 900;
+  flex-shrink: 0;
+  border: 1px solid rgba(5, 150, 105, 0.25);
+}
+
+/* Изображение на главном экране (Hero Showcase Visual) */
+.hero-visual-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.hero-visual__img-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.hero-visual__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-visual-card:hover .hero-visual__img {
+  transform: scale(1.04);
+}
+
+.hero-visual__overlay-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-visual__body {
+  padding: 24px;
+  background: var(--color-bg-white);
+}
+
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.hero-stat-box {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.hero-stat-box__val {
+  font-size: 1.625rem;
+  font-weight: 900;
+  color: var(--color-brand-petrol);
+  line-height: 1.1;
+}
+
+.hero-stat-box__lbl {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.hero-card__note {
+  background: var(--color-brand-petrol-subtle);
+  border: 1px solid var(--color-border-cyan);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  color: var(--color-brand-petrol-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Логотипы реальных компаний и энергосистем (Logos Grid)
+   ========================================================================== */
+.trust-strip {
+  background-color: var(--color-bg-white);
+  border-bottom: 1px solid var(--color-border-light);
+  padding: 48px 0;
+}
+
+.trust-strip__header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 32px;
+}
+
+.trust-strip__title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin-bottom: 8px;
+}
+
+.trust-strip__subtitle {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  align-items: center;
+}
+
+.logo-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.logo-card:hover {
+  border-color: var(--color-accent-cyan);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.logo-card__img {
+  max-height: 48px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Секции и типографика
+   ========================================================================== */
+.section {
+  padding: 84px 0;
+  position: relative;
+}
+
+.section--alt {
+  background-color: #f1f5f9;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-brand-petrol);
+  background: var(--color-brand-petrol-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+  border: 1px solid var(--color-border-cyan);
+}
+
+.section-title {
+  font-size: 2.375rem;
+  font-weight: 900;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: var(--color-text-title);
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Услуги (Services Grid) — Светлые карточки
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent-cyan);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.service-card__icon-wrap {
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-petrol-subtle);
+  border: 1px solid var(--color-border-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  margin-bottom: 22px;
+}
+
+.service-card__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--color-text-title);
+}
+
+.service-card__desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.service-card__list {
+  margin-top: auto;
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-card__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  font-weight: 500;
+}
+
+.service-card__check {
+  color: var(--color-accent-cyan-dark);
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   Кейсы и выполненные объекты (Portfolio Grid с фото)
+   ========================================================================== */
+.portfolio-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+.filter-btn {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  color: var(--color-text-body);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--color-brand-petrol);
+  color: var(--color-text-white);
+  border-color: var(--color-brand-petrol);
+  box-shadow: 0 4px 14px rgba(30, 90, 107, 0.3);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.project-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  border-color: var(--color-accent-cyan);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card__img-wrap {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card__img {
+  transform: scale(1.05);
+}
+
+.project-card__badge-overlay {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--color-accent-volt);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-card__top {
+  padding: 24px 28px 14px;
+}
+
+.project-card__loc {
+  font-size: 0.8125rem;
+  color: var(--color-accent-cyan-dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.project-card__title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+}
+
+.project-card__body {
+  padding: 0 28px 24px;
+  flex-grow: 1;
+}
+
+.project-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--color-bg-alt);
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 18px;
+  border: 1px solid var(--color-border-light);
+}
+
+.spec-item__val {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-brand-petrol);
+}
+
+.spec-item__lbl {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.project-work-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+}
+
+.project-work-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.project-work-list li::before {
+  content: "•";
+  color: var(--color-accent-cyan);
+  font-size: 1.25rem;
+  position: absolute;
+  left: 0;
+  top: -2px;
+}
+
+.project-card__footer {
+  padding: 14px 28px;
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Интерактивный сметный калькулятор (Светлый)
+   ========================================================================== */
+.calc-wrapper {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-xl);
+  padding: 44px;
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 48px;
+}
+
+.calc-step {
+  margin-bottom: 26px;
+}
+
+.calc-step__label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  margin-bottom: 12px;
+}
+
+.calc-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.calc-option {
+  position: relative;
+}
+
+.calc-option input[type="radio"],
+.calc-option input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.calc-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 14px 10px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+  transition: var(--transition-fast);
+}
+
+.calc-option label:hover {
+  border-color: var(--color-brand-petrol);
+  color: var(--color-brand-petrol);
+}
+
+.calc-option input:checked + label {
+  background: var(--color-brand-petrol-subtle);
+  border-color: var(--color-accent-cyan);
+  color: var(--color-brand-petrol-dark);
+  box-shadow: 0 0 0 1px var(--color-accent-cyan);
+}
+
+/* Сводка калькулятора */
+.calc-summary {
+  background: linear-gradient(145deg, #f8fafc, #edf2f7);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calc-summary__title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.calc-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.calc-breakdown__item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9375rem;
+  color: var(--color-text-body);
+}
+
+.calc-breakdown__item--total {
+  border-top: 2px solid var(--color-border-cyan);
+  padding-top: 14px;
+  margin-top: 6px;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+}
+
+.calc-breakdown__item--total span:last-child {
+  color: var(--color-brand-petrol);
+  font-size: 1.625rem;
+  font-weight: 900;
+}
+
+.calc-note {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+   Аттестаты и Реестры (Certifications)
+   ========================================================================== */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.cert-card {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-card:hover {
+  border-color: var(--color-accent-cyan);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cert-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-accent-volt);
+  background: var(--color-accent-volt-subtle);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 18px;
+  align-self: flex-start;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
+.cert-card__number {
+  font-family: var(--font-mono);
+  font-size: 1.1875rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin-bottom: 8px;
+}
+
+.cert-card__issuer {
+  font-size: 0.875rem;
+  color: var(--color-brand-petrol);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.cert-card__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.cert-card__meta {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: 14px;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.cert-card__link {
+  color: var(--color-accent-cyan-dark);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cert-card__link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Этапы работы (Workflow Process)
+   ========================================================================== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.process-step {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: 30px 24px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.process-step:hover {
+  border-color: var(--color-accent-cyan);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.process-step__num {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--color-brand-petrol);
+  opacity: 0.25;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.process-step__title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+  margin-bottom: 10px;
+}
+
+.process-step__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Вопрос-Ответ (FAQ Accordion)
+   ========================================================================== */
+.faq-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+
+.faq-item.active {
+  border-color: var(--color-accent-cyan);
+  box-shadow: var(--shadow-md);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 22px 26px;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.faq-icon {
+  font-size: 1.125rem;
+  color: var(--color-brand-petrol);
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+  padding: 0 26px;
+  color: var(--color-text-body);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+  padding-bottom: 22px;
+}
+
+/* ==========================================================================
+   Форма заявки и Контакты (Contact Box) — Светлый блок
+   ========================================================================== */
+.contact-section {
+  padding: 90px 0;
+  background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.contact-box {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-xl);
+  padding: 56px;
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-info__badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-brand-petrol);
+  background: var(--color-brand-petrol-subtle);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-info__title {
+  font-size: 2.125rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--color-text-title);
+}
+
+.contact-info__desc {
+  font-size: 1rem;
+  color: var(--color-text-body);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.contact-channel-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-channel-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  background: var(--color-brand-petrol-subtle);
+  border: 1px solid var(--color-border-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-petrol);
+  font-size: 1.375rem;
+  flex-shrink: 0;
+}
+
+.contact-channel-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-title);
+}
+
+.contact-channel-val:hover {
+  color: var(--color-brand-petrol);
+}
+
+.contact-channel-lbl {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.company-requisites {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border-light);
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Форма сметы */
+.lead-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-title);
+}
+
+.form-input, .form-textarea {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  color: var(--color-text-title);
+  transition: var(--transition-fast);
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  background: var(--color-bg-white);
+  border-color: var(--color-brand-petrol);
+  box-shadow: 0 0 0 3px rgba(30, 90, 107, 0.12);
+}
+
+.form-file-drop {
+  border: 2px dashed var(--color-border-card);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  background: var(--color-bg-alt);
+}
+
+.form-file-drop:hover {
+  border-color: var(--color-brand-petrol);
+  background: var(--color-brand-petrol-subtle);
+}
+
+.form-file-drop__icon {
+  font-size: 1.75rem;
+  color: var(--color-brand-petrol);
+  margin-bottom: 6px;
+}
+
+.form-file-drop__text {
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Подвал сайта (Footer)
+   ========================================================================== */
+.site-footer {
+  background-color: #0f172a;
+  color: #94a3b8;
+  padding: 60px 0 30px;
+  font-size: 0.875rem;
+}
+
+.site-footer__inner {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.site-footer__brand-p {
+  margin: 16px 0 20px;
+  line-height: 1.6;
+  max-width: 320px;
+  color: #cbd5e1;
+}
+
+.footer-col__title {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.footer-col__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col__link:hover {
+  color: #ffffff;
+}
+
+.site-footer__bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8125rem;
+}
+
+/* ==========================================================================
+   Модальные окна (Modal Dialogs)
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-window {
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-xl);
+  max-width: 520px;
+  width: 100%;
+  padding: 40px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: var(--transition-normal);
+}
+
+.modal-overlay.active .modal-window {
+  transform: translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: var(--color-text-title);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--color-text-title);
+}
+
+.modal-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-body);
+  margin-bottom: 24px;
+}
+
+.toast-msg {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #ffffff;
+  border: 1px solid var(--color-accent-volt);
+  color: var(--color-text-title);
+  padding: 16px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: var(--transition-normal);
+  font-weight: 600;
+}
+
+.toast-msg.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Адаптивность (Media Queries)
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .calc-wrapper {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+  .certs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .contact-box {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+}
+
+@media (max-width: 860px) {
+  .site-nav {
+    display: none;
+  }
+  .site-nav.mobile-active {
+    display: flex;
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg-white);
+    flex-direction: column;
+    padding: 30px 24px;
+    z-index: 99;
+    border-top: 1px solid var(--color-border-light);
+  }
+  .site-nav.mobile-active .site-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+  }
+  .site-nav.mobile-active .site-nav__link {
+    font-size: 1.125rem;
+  }
+  .burger-btn {
+    display: block;
+  }
+  .header-phone-quick {
+    display: none;
+  }
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero__title {
+    font-size: 2.125rem;
+  }
+  .hero__features-list {
+    grid-template-columns: 1fr;
+  }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .certs-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .top-bar {
+    padding: 8px 0;
+  }
+  .top-bar__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    justify-content: center;
+  }
+  .top-bar__status {
+    font-size: 0.75rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .top-bar__contacts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    width: 100%;
+  }
+  .top-bar__phone {
+    flex: 0 0 100%;
+    width: 100%;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+  }
+  .top-bar__link {
+    font-size: 0.75rem;
+  }
+  .top-bar__unp {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 0.6875rem;
+  }
+}
+
+/* ==========================================================================
+   UX/UI-аудит 13.10.2026 — точечные исправления вёрстки
+   ========================================================================== */
+/* Нет горизонтального скролла (пустой полосы справа) ни на одном экране */
+html, body { max-width: 100%; overflow-x: clip; }
+.hero__inner > *, .calc-wrapper > *, .contact-box > * { min-width: 0; }
+.calc-options-grid { grid-template-columns: repeat(auto-fit, minmax(min(130px, 100%), 1fr)); }
+
+/* Шапка: воздух между логотипом, меню и телефоном; пункты меню в одну строку */
+.site-header__inner { gap: 32px; }
+.site-logo { flex-shrink: 0; }
+@media (min-width: 1121px) {
+  .site-nav { flex: 1 1 auto; display: flex; justify-content: center; min-width: 0; }
+}
+.site-nav__link { white-space: nowrap; }
+.site-header__actions { flex-shrink: 0; }
+
+@media (max-width: 1320px) {
+  .site-header__inner { gap: 24px; }
+  .site-nav__list { gap: 20px; }
+  .site-nav__link { font-size: 0.875rem; }
+}
+@media (max-width: 1180px) {
+  .header-phone-quick { display: none; }
+}
+@media (max-width: 860px) {
+  .site-header__inner { gap: 12px; }
+}
+@media (max-width: 640px) {
+  .calc-wrapper { padding: 24px 18px; gap: 28px; }
+  .contact-box { padding: 24px 18px; }
+}
+@media (max-width: 480px) {
+  .site-header__inner { height: 68px; }
+  .site-nav.mobile-active { top: 68px; }
+  .site-logo__img { height: 40px; }
+  .site-header__actions { gap: 10px; }
+  .site-header__actions .btn-sm { padding: 8px 12px; font-size: 0.8125rem; }
+}
+@media (max-width: 400px) {
+  .hero__title { font-size: 1.875rem; }
+  .site-logo__img { height: 36px; }
+  .site-header__actions { gap: 6px; }
+  .site-header__actions .btn-sm { padding: 8px 10px; font-size: 0.75rem; }
+}
+/* Бургер-меню на планшетах и малых ноутбуках (861–1120px), чтобы меню не наезжало на кнопку */
+@media (min-width: 861px) and (max-width: 1120px) {
+  .site-nav { display: none; }
+  .site-nav.mobile-active { display: flex; position: fixed; top: 76px; left: 0; right: 0; bottom: 0;
+    background: var(--color-bg-white); flex-direction: column; padding: 30px 24px; z-index: 99;
+    border-top: 1px solid var(--color-border-light); }
+  .site-nav.mobile-active .site-nav__list { flex-direction: column; align-items: flex-start; gap: 20px; width: 100%; }
+  .site-nav.mobile-active .site-nav__link { font-size: 1.125rem; }
+  .burger-btn { display: block; }
+}
+
+/* Мобильное меню: фиксированная непрозрачная панель под шапкой на всю высоту экрана.
+   На время открытия у шапки снимается backdrop-filter, иначе fixed считается от шапки. */
+@media (max-width: 1120px) {
+  html.nav-open { overflow: hidden; }
+  html.nav-open .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background-color: #ffffff; }
+  .site-nav.mobile-active {
+    position: fixed;
+    top: var(--header-bottom, 76px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #ffffff;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  }
+  .site-nav.mobile-active .site-nav__link { display: block; padding: 6px 0; }
+  .burger-btn { min-width: 44px; min-height: 44px; }
+}
+
+/* Карточки объектов: значения характеристик не вылезают за плашку */
+.project-specs-grid > * { min-width: 0; }
+.spec-item__val { overflow-wrap: break-word; }
+/* Калькулятор: суммы не разрываются ("26 300 BYN" в одну строку) */
+.calc-breakdown__item { gap: 12px; }
+.calc-breakdown__item span:last-child { white-space: nowrap; text-align: right; }
+@media (max-width: 640px) {
+  /* Длинные надписи кнопок переносятся, а не выходят за границы */
+  .btn { white-space: normal; text-align: center; line-height: 1.3; }
+  .site-header__actions .btn-sm { white-space: nowrap; }
+  .spec-item__val { font-size: 1rem; }
+}
+
+/* Доп. правки по замерам переполнения */
+@media (min-width: 1121px) and (max-width: 1320px) {
+  .site-nav__list { gap: 16px; }
+}
+.spec-item__lbl { overflow-wrap: break-word; hyphens: auto; }
+.calc-breakdown__item--total { flex-wrap: wrap; }
+@media (max-width: 420px) {
+  .section-title, .contact-info__title { font-size: 1.625rem; hyphens: auto; overflow-wrap: break-word; }
+  .project-specs-grid { gap: 8px; }
+  .calc-summary { padding-left: 18px; padding-right: 18px; }
+  .contact-info { min-width: 0; }
+}
+
+/* Шапка на широких экранах: меню не наезжает на логотип и телефон */
+@media (min-width: 1121px) {
+  .site-nav__list { gap: 20px; }
+  .site-nav__link { font-size: 0.875rem; }
+}
+@media (min-width: 1121px) and (max-width: 1320px) {
+  .site-nav__list { gap: 16px; }
+}
+/* Модальное окно помещается на коротких экранах, крестик всегда доступен */
+.modal-overlay { padding: 16px; }
+.modal-window { max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain; }
+.modal-close-btn { width: 44px; height: 44px; top: 10px; right: 10px; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 640px) { .modal-window { padding: 32px 20px 24px; } }
+/* Узкие смартфоны (до 360px) */
+.site-header__actions .btn-sm { min-height: 40px; }
+@media (max-width: 360px) {
+  .hero__title { font-size: 1.625rem; }
+  .hero-stat-box { padding: 12px; min-width: 0; }
+  .hero-stat-box__val { font-size: 1.375rem; }
+  .contact-channel-val { font-size: 1.0625rem; overflow-wrap: anywhere; }
+  .spec-item__val { font-size: 0.9375rem; }
+  .spec-item__lbl { font-size: 0.6875rem; }
+  .project-specs-grid { padding: 12px; }
+  .site-logo__img { height: 32px; }
+}
+@media (max-width: 340px) {
+  .site-header__actions .btn-sm { display: none; }
+}
+/* Итоговая настройка шапки по замерам: логотип 157 + меню + телефон 164 + кнопка 166 в контейнере 1192px */
+@media (min-width: 1121px) {
+  .site-header__inner { gap: 24px; }
+  .site-nav__list { gap: 14px; }
+}
+@media (min-width: 1121px) and (max-width: 1320px) {
+  .header-phone-quick { display: none; }   /* телефон остаётся в верхней панели */
+  .site-nav__list { gap: 18px; }
+}
+@media (max-width: 340px) {
+  .hero-stat-box { padding: 10px; }
+  .hero-stat-box__lbl { font-size: 0.6875rem; hyphens: auto; overflow-wrap: break-word; }
+  .project-specs-grid { padding: 10px; gap: 6px; }
+  .spec-item__lbl { font-size: 0.625rem; }
+}

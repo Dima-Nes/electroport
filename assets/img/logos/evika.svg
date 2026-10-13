@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" width="180" height="60">
+  <rect width="180" height="60" rx="8" fill="#ffffff"/>
+  <!-- Evika! Cyan/Lime brand -->
+  <g transform="translate(12, 12)">
+    <circle cx="18" cy="18" r="16" fill="#00B0FF" fill-opacity="0.15"/>
+    <path d="M14 12 L22 12 L22 20 L14 20 Z" fill="#00B0FF"/>
+    <path d="M18 20 L18 26 M14 26 L22 26" stroke="#76FF03" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <text x="52" y="35" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#0091EA" letter-spacing="-0.5">evika<tspan fill="#00C853">!</tspan></text>
+  <text x="53" y="47" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" fill="#546E7A">СЕТЬ ЭЗС БЕЛТЕЛЕКОМ</text>
+</svg>

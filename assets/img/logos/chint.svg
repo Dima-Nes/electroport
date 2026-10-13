@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 60" width="170" height="60">
+  <rect width="170" height="60" rx="8" fill="#ffffff"/>
+  <!-- CHINT Blue Logo -->
+  <g transform="translate(14, 16)">
+    <circle cx="14" cy="14" r="14" fill="#005BAC"/>
+    <path d="M10 8 L18 14 L10 20 Z" fill="#ffffff"/>
+  </g>
+  <text x="48" y="35" font-family="'Segoe UI', Roboto, sans-serif" font-size="24" font-weight="900" fill="#005BAC" letter-spacing="1.5">CHINT</text>
+  <text x="49" y="47" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="700" fill="#666666">POWER &amp; AUTOMATION</text>
+</svg>

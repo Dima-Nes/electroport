@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="fleetSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#fleetSky)"/>
+  <!-- Warehouse Logistics Building -->
+  <rect x="40" y="110" width="720" height="180" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="40" y="110" width="720" height="28" fill="#24697d"/>
+  <!-- Warehouse Doors -->
+  <rect x="80" y="170" width="80" height="120" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="180" y="170" width="80" height="120" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="280" y="170" width="80" height="120" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <rect x="380" y="170" width="80" height="120" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Ground / Pavement -->
+  <rect x="0" y="290" width="800" height="160" fill="url(#roadGrad)"/>
+  <!-- Green EV Parking Slots -->
+  <rect x="480" y="320" width="130" height="110" rx="4" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="12 6"/>
+  <rect x="630" y="320" width="130" height="110" rx="4" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="12 6"/>
+  <circle cx="545" cy="375" r="16" fill="rgba(16,185,129,0.2)"/>
+  <path d="M540 375 L545 367 L545 373 L550 373 L544 383 L544 377 Z" fill="#10b981"/>
+  <circle cx="695" cy="375" r="16" fill="rgba(16,185,129,0.2)"/>
+  <path d="M690 375 L695 367 L695 373 L700 373 L694 383 L694 377 Z" fill="#10b981"/>
+  <!-- DC Charging Pillars -->
+  <g transform="translate(515, 230)">
+    <rect x="0" y="0" width="36" height="75" rx="4" fill="#ffffff" stroke="#24697d" stroke-width="2.5"/>
+    <rect x="6" y="8" width="24" height="16" rx="2" fill="#0f172a"/>
+    <circle cx="18" cy="16" r="4" fill="#10b981"/>
+    <rect x="10" y="32" width="16" height="3" fill="#24697d"/>
+    <path d="M36 40 C44 40 48 50 48 65 L48 75" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(665, 230)">
+    <rect x="0" y="0" width="36" height="75" rx="4" fill="#ffffff" stroke="#24697d" stroke-width="2.5"/>
+    <rect x="6" y="8" width="24" height="16" rx="2" fill="#0f172a"/>
+    <circle cx="18" cy="16" r="4" fill="#10b981"/>
+    <rect x="10" y="32" width="16" height="3" fill="#24697d"/>
+    <path d="M36 40 C44 40 48 50 48 65 L48 75" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round"/>
+  </g>
+  <!-- Commercial Electric Van in slot -->
+  <g transform="translate(120, 260)">
+    <path d="M20 50 L120 50 L160 50 L180 75 L180 120 L20 120 Z" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <path d="M120 50 L145 50 L168 75 L120 75 Z" fill="#0284c7" fill-opacity="0.3"/>
+    <circle cx="55" cy="120" r="16" fill="#0f172a"/>
+    <circle cx="55" cy="120" r="7" fill="#cbd5e1"/>
+    <circle cx="145" cy="120" r="16" fill="#0f172a"/>
+    <circle cx="145" cy="120" r="7" fill="#cbd5e1"/>
+    <rect x="40" y="70" width="70" height="14" rx="3" fill="#10b981"/>
+    <text x="75" y="81" font-family="sans-serif" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle">100% ELECTRIC</text>
+  </g>
+</svg>

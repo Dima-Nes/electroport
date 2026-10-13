@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <rect width="240" height="60" rx="8" fill="#ffffff"/>
+  <!-- Gosenergogaznadzor Shield & Flash -->
+  <g transform="translate(12, 10)">
+    <path d="M20 4 L34 10 L34 26 C34 34 20 40 20 40 C20 40 6 34 6 26 L6 10 Z" fill="#1B5E20" fill-opacity="0.12" stroke="#1B5E20" stroke-width="2"/>
+    <path d="M21 11 L14 23 L19 23 L17 31 L26 19 L21 19 Z" fill="#D32F2F"/>
+  </g>
+  <text x="54" y="30" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#1B5E20">ГОСЭНЕРГОГАЗНАДЗОР</text>
+  <text x="54" y="44" font-family="'Segoe UI', Roboto, sans-serif" font-size="8.5" font-weight="600" fill="#555555">ГОСУДАРСТВЕННЫЙ ЭНЕРГОНАДЗОР РБ</text>
+</svg>

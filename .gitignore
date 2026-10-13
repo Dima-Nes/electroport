@@ -1,0 +1,22 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project notes & source docs
+PROJECT_LOG.md
+*.docx
+*.textClipping
+*.m4a
+answers/
+certificate/
+
+# Standalone preview bundle
+electroport_standalone.html
+
+# Raw source images (processed copies are in assets/img/)
+Logo_main.jpeg
+logo.png
+logo_fin.jpg
+b*.jpeg
+p*.jpeg
+viber_image*
