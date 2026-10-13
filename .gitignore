@@ -13,10 +13,10 @@ certificate/
 # Standalone preview bundle
 electroport_standalone.html
 
-# Raw source images (processed copies are in assets/img/)
-Logo_main.jpeg
-logo.png
-logo_fin.jpg
-b*.jpeg
-p*.jpeg
-viber_image*
+# Raw source files in project root only
+/Logo_main.jpeg
+/logo.png
+/logo_fin.jpg
+/b*.jpeg
+/p*.jpeg
+/viber_image*
